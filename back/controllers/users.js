@@ -1,4 +1,3 @@
-
 const User = require('../models/users');
 module.exports = {
 
@@ -17,32 +16,32 @@ module.exports = {
 login:(req,res,next)=>{
     
     User.findOne({email: req.body.email, password: req.body.password})
-    .exec(function(err,users){
+    .exec(function(err,User){
         if (err) {
-          res.json(err)
+        res.json(err)
         } else if (!User) {
-          var err = new Error('User not found.');
-          err.status = 401;
-          res.json(err)
+        var err = new Error('User not found.');
+        err.status = 401;
+        res.json(err)
         } else {
             res.json('success');
-          }
+        }
         })
 },
 
 
 //registeration
 register:(req,res,next)=>{
-   console.log(req.body)
+console.log(req.body)
     let userData = {
         name: req.body.name,
         email: req.body.email,
         username: req.body.username,
         password: req.body.password,
-      }
+    }
     User.create(userData, function(err,users){
         if (err){
-           return next(err)
+        return next(err)
         }else{
             return res.redirect('/')
         }
@@ -50,25 +49,7 @@ register:(req,res,next)=>{
 
 
 },
-//logout
-// logout:(req,res,next)=>{
-//     if(req.session){
-//         req.session.distroy(function(err){
-//             if(err){
-//                 return next(err);
-//             }else{
-//                 return res.redirect('/')
-//             }
-//         })
-//     }
-// }
 
-//update
-// update:(req,res,next)=>{
-
-// }
-
-//delete
 
     
 }

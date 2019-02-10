@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }))
+
 
 Users = require('./models/users')
-Notes = require('./models/notes')
+Note = require('./models/note')
 var routes_setter = require('./config/routes.js');
 routes_setter(app);
 app.listen(8000);
