@@ -22,7 +22,7 @@ class App extends Component {
           med: [...othermed, updatedmed]
           
         })
-       
+    
       })
   }
   
@@ -40,7 +40,7 @@ class App extends Component {
   //   const json = await res.json()
   //   this.setState({user: json})
   //   console.log(json)
-   
+  
   // }
 
 
@@ -50,13 +50,15 @@ class App extends Component {
       
     })
     
-   }
+  }
   render() {
     return (
       <div className="App">
         <NavBar />
+        <switch>
         <Login />
         <SearchBar />
+        </switch>
       </div>
     );
   }

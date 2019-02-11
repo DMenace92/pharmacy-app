@@ -23,10 +23,15 @@ const userSchema = mongoose.Schema({
         require:true,
         unique:true
     },
+    // img:{
+    //     type: Image,
+
+    // },
     create_date:{
         type: Date,
         default: Date.now
     }
+
 
 })
 module.exports = mongoose.model('Users',userSchema)

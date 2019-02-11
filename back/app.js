@@ -7,6 +7,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 Users = require('./models/users')
 Note = require('./models/note')
+Userinfo = require('./models/userinfo')
 var routes_setter = require('./config/routes.js');
 routes_setter(app);
 app.listen(8000);

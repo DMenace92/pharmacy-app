@@ -1,22 +1,23 @@
 const users = require('../controllers/users')
 const notes = require('../controllers/note')
+const userinfo = require('../controllers/userinfo')
 const jwt = require("jsonwebtoken");
 const secret = process.env.JWT_SECRET || "pharmacy";
 
 module.exports = function(app){
 
-    //USERS
+    //USERS_____________________________________________________
     app.get('/users', users.index);
     app.post('/login', users.login);
     app.post('/register', users.register);
 
 
-    //AUTH
+    //AUTH______________________________________________________
     app.use(jwtAuth)
 
     //USERS after auth
 
-    //notes CURD
+    //notes CURD________________________________________________
     // Create a new Note
     app.post('/notes', notes.create);
     // Retrieve all Notes
@@ -27,6 +28,10 @@ module.exports = function(app){
     app.put('/notes/:noteId', notes.update);
     // Delete a Note with noteId
     app.delete('/notes/:noteId', notes.delete);
+
+    //userinfo CURD_____________________________________________
+
+
 }
 
 const jwtAuth = (req, res, next) => {

@@ -5,13 +5,7 @@ module.exports = {
         User.find().exec((err, users)=>{
             res.json(users);
         })
-    //    User.create({name:'test', username:'test', password:'test', email:'test'})
-        // mongoose('users').then(users =>{
-        //     res.json(users)
-        
     },
-
-
 //login
 login:(req,res,next)=>{
     
