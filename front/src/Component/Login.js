@@ -4,7 +4,9 @@ import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 class Login extends Component{
     state = {
         email: "",
-        password: ""
+        password: "",
+        username:"",
+        name:""
     }
     
     _onSubmit = (e) => {
@@ -12,7 +14,7 @@ class Login extends Component{
         console.log(this.state);
         console.log(this.props);
         this.props.login(this.state);
-        this.setState({email: "", password: ""})
+        this.setState({email: "", password: "", username:"", name:""})
     }
     
     _onChange = ({target}) =>  {

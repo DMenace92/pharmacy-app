@@ -4,14 +4,16 @@ import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 class Register extends Component {
 
   state = {
+    name:"",
     username: "",
-    password: ""
+    password: "",
+    email:""
   }
 
   _onSubmit = (e) => {
     e.preventDefault();
     this.props.register(this.state);
-    this.setState({username: "", password: ""})
+    this.setState({username: "", password: "",name:"",email:""})
   }
 
   _onChange = ({target}) =>  {
@@ -26,6 +28,14 @@ class Register extends Component {
         <FormGroup>
           <Label for="username">Username</Label>
           <Input onChange={this._onChange} value={this.state.username} type="text" name="username" placeholder="Username" />
+        </FormGroup>
+        <FormGroup>
+          <Label for="name">name</Label>
+          <Input onChange={this._onChange} value={this.state.name} type="text" name="name" placeholder="name" />
+        </FormGroup>
+        <FormGroup>
+          <Label for="email">email</Label>
+          <Input onChange={this._onChange} value={this.state.email} type="text" name="email" placeholder="email" />
         </FormGroup>
         <FormGroup>
           <Label for="password">Password</Label>
