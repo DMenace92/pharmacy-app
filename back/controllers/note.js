@@ -26,7 +26,9 @@ module.exports = {
     
     //retreve all notes
     findAll: (req, res) => {
+        console.log('hello')
         Note.find()
+
             .then(notes => {
                 res.send(notes);
             }).catch(err => {

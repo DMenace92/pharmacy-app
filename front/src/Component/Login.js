@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 
 class Login extends Component{
     state = {
-        username: "",
+        Email: "",
         password: ""
     }
     
@@ -19,17 +19,17 @@ class Login extends Component{
     
     render(){
         return(
-             <Form onSubmit={this._onSubmit}>
+    <Form onSubmit={this._onSubmit}>
         <FormGroup>
-          <Label for="username">Username</Label>
-          <Input onChange={this._onChange} value={this.state.username} type="text" name="username" placeholder="Username" />
+        <Label for="Email">Email</Label>
+        <Input onChange={this._onChange} value={this.state.Email} type="text" name="Email" placeholder="Email" />
         </FormGroup>
         <FormGroup>
-          <Label for="password">Password</Label>
-          <Input onChange={this._onChange} value={this.state.password} type="password" name="password" placeholder="Password" />
+        <Label for="password">Password</Label>
+        <Input onChange={this._onChange} value={this.state.password} type="password" name="password" placeholder="Password" />
         </FormGroup>
         <Button>Submit</Button>
-      </Form>
+    </Form>
         )
     }
 }

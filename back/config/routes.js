@@ -2,10 +2,9 @@ const users = require('../controllers/users')
 const notes = require('../controllers/note')
 const userinfo = require('../controllers/userinfo')
 const jwt = require("jsonwebtoken");
-const secret = process.env.JWT_SECRET || "pharmacy";
+const secret = process.env.JWT_SECRET || "donuts";
 
 module.exports = function(app){
-
     //USERS_____________________________________________________
     app.get('/users', users.index);
     app.post('/login', users.login);
@@ -15,6 +14,7 @@ module.exports = function(app){
     //AUTH______________________________________________________
     app.use(jwtAuth)
 
+
     //USERS after auth
 
     //notes CURD________________________________________________
@@ -22,6 +22,7 @@ module.exports = function(app){
     app.post('/notes', notes.create);
     // Retrieve all Notes
     app.get('/notes', notes.findAll);
+    
     // Retrieve a single Note with noteId
     app.get('/notes/:noteId', notes.findOne);
     // Update a Note with noteId
@@ -36,10 +37,11 @@ module.exports = function(app){
 
 const jwtAuth = (req, res, next) => {
     const token = req.body.token || req.headers.token || req.query.token;
-    
+    console.log(token);
     if (token) {
       jwt.verify(token, secret, (err, decoded) => {
         if (err) {
+          console.log(err)
           return res.status(401).send({
             message: 'You are not authorized, Please log in to continue.'
           });
