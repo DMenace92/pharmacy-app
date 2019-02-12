@@ -3,14 +3,16 @@ import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 
 class Login extends Component{
     state = {
-        Email: "",
+        email: "",
         password: ""
     }
     
     _onSubmit = (e) => {
         e.preventDefault();
+        console.log(this.state);
+        console.log(this.props);
         this.props.login(this.state);
-        this.setState({username: "", password: ""})
+        this.setState({email: "", password: ""})
     }
     
     _onChange = ({target}) =>  {
@@ -21,8 +23,8 @@ class Login extends Component{
         return(
     <Form onSubmit={this._onSubmit}>
         <FormGroup>
-        <Label for="Email">Email</Label>
-        <Input onChange={this._onChange} value={this.state.Email} type="text" name="Email" placeholder="Email" />
+        <Label for="email">Email</Label>
+        <Input onChange={this._onChange} value={this.state.email} type="text" name="email" placeholder="Email" />
         </FormGroup>
         <FormGroup>
         <Label for="password">Password</Label>
