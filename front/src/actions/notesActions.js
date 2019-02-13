@@ -15,7 +15,7 @@ export const FETCH_NOTES_LOADING = "FETCH_NOTES_LOADING"
 const fetchNotesLoading = (note) => ({type: FETCH_NOTES_LOADING})
 
 export const FETCH_NOTES_ERROR = "FETCH_NOTES_ERROR"
-const fetchNotesLoading = () => ({ type: FETCH_NOTES_ERROR })
+const fetchNotesError = () => ({ type: FETCH_NOTES_ERROR })
 
 //DELETE
 export const DELETE_NOTES_SUCCESS = "DELETE_NOTES_SUCCESS"
@@ -54,14 +54,14 @@ export const createNotes = (notes, token) => dispatch => {
   })
 }
 //FETCH
-export const fetchNotes = (token) => {
+export const fetchNotes = (token) => dispatch => {
   dispatch(
     fetchNotesLoading()
   )
   fetch('http://localhost:8000/notes', {
     headers: {
       'Content-Type': 'application/json',
-      'token' : token
+      'token' : localStorage.getItem('token')
     }
   })
   .then(res => res.json())
@@ -72,7 +72,7 @@ export const fetchNotes = (token) => {
   })
   .catch(err => {
     dispatch(
-      fetchCommentError()
+      fetchNotesError()
     )
   })
   

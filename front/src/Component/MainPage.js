@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
-import { Container, Row } from 'reactstrap'
+
+import { Container,Button} from 'reactstrap'
 
 
 class MainPage extends Component {
@@ -12,17 +12,8 @@ class MainPage extends Component {
     return (
       <div>
         <Container>
-          <Row>
-            <h1>Home Page</h1>
-          </Row>
-          <Row>
-            <h2>Following</h2>
-            {/* Comic selector */}
-          </Row>
-          <Row>            
-            <h2>Explore</h2>
-            {/* Comic selector */}
-          </Row>
+          <Button href="/SearchBar">search</Button>
+          hello
         </Container>
       </div>
     )

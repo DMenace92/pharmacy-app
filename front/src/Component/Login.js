@@ -14,6 +14,7 @@ class Login extends Component{
         console.log(this.state);
         console.log(this.props);
         this.props.login(this.state);
+        this.props.history.push("/MainPage")
         this.setState({email: "", password: "", username:"", name:""})
     }
     

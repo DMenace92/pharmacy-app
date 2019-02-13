@@ -5,6 +5,7 @@ class SearchBar extends Component{
     render(){
         return(
             <div>
+                hello
                 <input type="search"/>
 
             </div>

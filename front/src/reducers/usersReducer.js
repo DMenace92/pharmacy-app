@@ -12,6 +12,7 @@ const userReducer = (state = initState, action) => {
     case LOGIN_LOADING:
       return {...state, loginLoading: true}
     case LOGIN_SUCCESS:
+      localStorage.setItem('token', action.payload.token);
       return {
         ...state,
         id: action.payload.user.id,
@@ -21,6 +22,7 @@ const userReducer = (state = initState, action) => {
         loginError: false
       }
       case LOGIN_ERROR:
+      window.location.href='/Login'
       return {
         ...state,
         id: "",
