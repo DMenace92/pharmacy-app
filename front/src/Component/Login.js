@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
-
+// import Register from "./Component/Register"
 class Login extends Component{
     state = {
         email: "",
@@ -14,7 +14,7 @@ class Login extends Component{
         console.log(this.state);
         console.log(this.props);
         this.props.login(this.state);
-        this.props.history.push("/MainPage")
+        this.props.history.push("/main")
         this.setState({email: "", password: "", username:"", name:""})
     }
     
@@ -24,6 +24,7 @@ class Login extends Component{
     
     render(){
         return(
+            
     <Form onSubmit={this._onSubmit}>
         <FormGroup>
         <Label for="email">Email</Label>
@@ -35,6 +36,7 @@ class Login extends Component{
         </FormGroup>
         <Button>Submit</Button>
     </Form>
+    
         )
     }
 }

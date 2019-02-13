@@ -29,7 +29,7 @@ const deleteNotesLoading = () => ({ type: DELETE_NOTES_LOADING })
 
 //THUNK
 //CREATE
-export const createNotes = (notes, token) => dispatch => {
+export const createNotes = (notes) => dispatch => {
   dispatch(
     createNotesLoading()
   )
@@ -38,7 +38,7 @@ export const createNotes = (notes, token) => dispatch => {
     body: JSON.stringify(notes),
     headers: {
       'Content-Type': 'application/json',
-      'token' : token
+      'token' : localStorage.getItem('token')
     }
   })
   .then(res => res.json())

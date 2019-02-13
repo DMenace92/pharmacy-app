@@ -22,7 +22,7 @@ const userReducer = (state = initState, action) => {
         loginError: false
       }
       case LOGIN_ERROR:
-      window.location.href='/Login'
+      window.location.href='/login'
       return {
         ...state,
         id: "",

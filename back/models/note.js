@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/pharmacy',{useNewUrlParser: true })
 
 const notesSchema = mongoose.Schema({
+    userId: String,
     title: String,
     content: String
 }, {

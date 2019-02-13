@@ -4,9 +4,8 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import MainPageContainer from './containers/MainPageContainer';
 import RegisterContainer from './containers/RegisterContainer';
 import NotesContainer from './containers/NotesContainer';
-
+import LoginAndRegister from './Component/LoginAndRegister';
 import './App.css';
-// import Notes from './Component/Notes';
 
 class App extends Component {
   render() {
@@ -14,14 +13,14 @@ class App extends Component {
     return (
       <div className="App">
         
-      
+      <LoginAndRegister />
         
         <Switch>
-      
+        
         <Route path="/login" component={LoginContainer} />
-        <Route path="/Register" component={RegisterContainer} />
-        <Route exact path ="/MainPage" component={MainPageContainer} />
-        <Route exact path = "/Notes" component= {NotesContainer} />
+        <Route path="/register" component={RegisterContainer} />
+        <Route exact path ="/main" component={MainPageContainer} />
+        <Route exact path = "/notes" component= {NotesContainer} />
        
       
         </Switch>
