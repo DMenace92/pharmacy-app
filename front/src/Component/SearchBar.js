@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
-
+import {Button} from "reactstrap"
 
 class SearchBar extends Component{
     render(){
         return(
             <div>
-                hello
-                <input type="search"/>
-
+                
+            <input className='inputSearch' placeholder="Search" onChange={this.props.MedSearch} />
+            <Button>search</Button>
             </div>
         )
     }

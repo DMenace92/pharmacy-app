@@ -70,6 +70,8 @@ switch(action.type){
     ...state,
     notesLoading: true,
   }
+  default:
+  return state
   }
 }
 
