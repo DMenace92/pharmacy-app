@@ -8,8 +8,10 @@ const medInfoSchema = mongoose.Schema({
     quantity: String,
     doctor: String,
     dateWritten: String,
+    expired: String,
     daySupply: String,
     refills: String,
+    directions: String,
 
 
 

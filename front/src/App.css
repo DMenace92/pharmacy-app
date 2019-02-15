@@ -3,3 +3,8 @@ background-image: url("150016-vertical-biology-wallpaper-1920x1200.jpg")!importa
 /* opacity:.8; */
 height:100vh;
 }
+.medFormText{
+  color:white;
+  
+  text-align: center ;
+}

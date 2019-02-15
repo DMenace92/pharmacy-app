@@ -45,7 +45,7 @@ export const createMeds = (meds) => dispatch => {
   })
 }
 
-export const fetch = (token) => dispatch => {
+export const fetchMeds = (token) => dispatch => {
   dispatch(
     fetchMedsLoading()
   )

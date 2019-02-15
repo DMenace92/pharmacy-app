@@ -62,7 +62,7 @@ export const register = (user) => dispatch => {
     }
 
   })
-    .then(res => res.json)
+    .then(res => res.json())
     .then(msg => {
 
       dispatch(
