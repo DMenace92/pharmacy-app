@@ -5,7 +5,8 @@ import MainPageContainer from './containers/MainPageContainer';
 import RegisterContainer from './containers/RegisterContainer';
 import NotesContainer from './containers/NotesContainer';
 import LoginAndRegister from './Component/LoginAndRegister';
-import SearchBar from './Component/SearchBar'
+import MedInfoContainer from "./containers/MedInfoContainer";
+
 import './App.css';
 
 class App extends Component {
@@ -19,13 +20,11 @@ class App extends Component {
         
         <Switch>
         <Route path ="//" component={LoginAndRegister} />
-        <Route path ="/searchbar" component={SearchBar} />
+        <Route path ="/medinfo" component = {MedInfoContainer} />
         <Route path="/login" component={LoginContainer} />
         <Route path="/register" component={RegisterContainer} />
         <Route exact path ="/main" component={MainPageContainer} />
         <Route exact path = "/notes" component= {NotesContainer} />
-      
-      
         </Switch>
       </div>
     );

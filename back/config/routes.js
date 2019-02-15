@@ -1,6 +1,6 @@
 const users = require('../controllers/users')
 const notes = require('../controllers/note')
-const userinfo = require('../controllers/userinfo')
+const medInfo = require('../controllers/medInfo')
 const jwt = require("jsonwebtoken");
 const secret = process.env.JWT_SECRET || "donuts";
 
@@ -30,7 +30,13 @@ module.exports = function(app){
     // Delete a Note with noteId
     app.delete('/notes/:noteId', notes.delete);
 
-    //userinfo CURD_____________________________________________
+    //medinfo CURD_____________________________________________
+    // Create medInfo
+    app.post('/medInfo',medInfo.create);
+    //retrive all meds
+    app.get('/medInfo/:id',medInfo.findAll)
+    //update
+    // app.put(medInfo)
 
 
 }

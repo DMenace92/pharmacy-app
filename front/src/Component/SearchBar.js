@@ -1,15 +1,60 @@
-import React, {Component} from 'react'
-import {Button} from "reactstrap"
+// import React, {Component} from 'react'
+// import MainPage from './MainPage';
+// // import {Contact} from "reactstrap"
 
-class SearchBar extends Component{
-    render(){
-        return(
-            <div>
+// class SearchBar extends Component{
+//     state={
+//         search: ''
+//     }
+//     // constructor(){
+//     //     super();
+//     //     this.state = {
+//     //         meds: []
+//     //     };
+//     // }
+// updateSearch = (e) => {
+//     this.setState({search: e.target.value})
+// }
+//     render(){
+//         // console.log(this.props.meds);
+        
+//         let filteredMeds = this.props.meds.filter(
+//             (meds)=>{
+//                 return meds.medicine_name.toLowerCase().startsWith(this.state.search.toLowerCase())
+//             }
+//         );
+//         console.log(!this.state.search);
+        
+//         return(
+//         <div>
+//         <input type="text"
+//             value={this.state.search}
+//             onChange={this.updateSearch}/>
+//             <ul>
+               
                 
-            <input className='inputSearch' placeholder="Search" onChange={this.props.MedSearch} />
-            <Button>search</Button>
-            </div>
-        )
-    }
-}
-export default SearchBar;
+//                 {this.state.search !== '' && filteredMeds.map((meds)=>{
+                    
+//                     return <li key={meds.id}> {meds.medicine_name}</li>
+                    
+                        
+                        
+//                 })}
+                
+                
+//             </ul>
+           
+            
+//         </div>
+        
+//         )
+//     }
+// }
+// export default SearchBar;
+
+
+
+
+
+
+ 
