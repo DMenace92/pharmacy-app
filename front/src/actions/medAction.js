@@ -19,6 +19,14 @@ export const FETCH_MEDS_ERROR = "FETCH_MEDS_ERROR"
 const fetchMedsError = () => ({ type: FETCH_MEDS_ERROR })
 
 //delete
+export const DELETE_MEDS_SUCCESS = "DELETE_MEDS_SUCCESS"
+const deleteMedsSuccess = (id) => ({ type: DELETE_MEDS_SUCCESS, payload: id})
+
+export const DELETE_MEDS_ERROR = "DELETE_MEDS_ERROR"
+const deleteMedsError = () => ({ type: DELETE_MEDS_ERROR })
+
+export const DELETE_MEDS_LOADING = "DELETE_MEDS_LOADING"
+const deleteMedsLoading = () => ({ type: DELETE_MEDS_LOADING })
 //thunk
 export const createMeds = (meds) => dispatch => {
   dispatch(
@@ -57,6 +65,7 @@ export const fetchMeds = (token) => dispatch => {
   })
   .then(res => res.json())
   .then(meds => {
+    console.log(meds)
     dispatch(
       fetchMedsSuccess(meds)
     )
@@ -68,3 +77,28 @@ export const fetchMeds = (token) => dispatch => {
   })
   
 }
+  //DELETE
+  export const deleteMeds = (id, token) => dispatch => {
+    dispatch(
+      deleteMedsLoading()
+    )
+    fetch('http://localhost:8000/medInfo', {
+      method: 'POST',
+      body: JSON.stringify(id),
+      headers: {
+        'Content-Type': 'application/json',
+        'token' : token
+      }
+    })
+    .then(res => res.json())
+    .then(id => {
+      dispatch(
+        deleteMedsSuccess(id)
+      )
+    })
+    .catch(err => {
+      dispatch(
+        deleteMedsError()
+      )
+    })
+  }

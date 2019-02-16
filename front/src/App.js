@@ -6,6 +6,7 @@ import RegisterContainer from './containers/RegisterContainer';
 import NotesContainer from './containers/NotesContainer';
 import LoginAndRegister from './Component/LoginAndRegister';
 import MedInfoContainer from "./containers/MedInfoContainer";
+import NavBar from "./Component/NavBar"
 
 import './App.css';
 
@@ -16,7 +17,7 @@ class App extends Component {
     return (
       <div className="App">
         
-  
+      <NavBar />
         
         <Switch>
         <Route path ="//" component={LoginAndRegister} />

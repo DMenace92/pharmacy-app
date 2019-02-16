@@ -51,7 +51,7 @@ _onChange = ({target}) =>  {
           a life spand of 1 year 365 days from the day it is writen.
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Close</Button>{' '}
+            <Button color="danger" onClick={this.toggle}>Close</Button>{' '}
           </ModalFooter>
         </Modal>
       <Form onSubmit={this._onSubmit} >
@@ -84,9 +84,9 @@ _onChange = ({target}) =>  {
         </FormGroup>
         <FormGroup className = "medFormText">
           <Label for="exampleDate">Expired Date</Label>        
-          <Input 
+          <Input onChange={this._onChange} value={this.state.expired}
             type="date"
-            name="date"
+            name="expired"
             id="exampleDate"
             placeholder="date placeholder"/>
         </FormGroup>
@@ -111,7 +111,8 @@ _onChange = ({target}) =>  {
           <Input onChange={this._onChange} value={this.state.directions}
           type="textarea" name="directions" id="exampleText" />
         </FormGroup>
-        <Button>Submit</Button>
+        
+        <Button color="primary">Submit</Button>
       </Form>
       </Container>
     )

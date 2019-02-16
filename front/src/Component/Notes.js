@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 // import{Redirect} from "react-router-dom"
 
-import { Button, Form, FormGroup, Label,} from 'reactstrap';
+import { Button, Form, FormGroup, Label, Container} from 'reactstrap';
 class Notes extends Component{
 
     state = {
@@ -24,6 +24,7 @@ class Notes extends Component{
     
     render(){
         return(
+            <Container>
     <Form onSubmit={this._onSubmit}>
         <FormGroup>
         <Label for="title">Title</Label>
@@ -36,6 +37,7 @@ class Notes extends Component{
         </FormGroup>
         <Button>Submit</Button>
     </Form>
+    </Container>
         )
     }
 }

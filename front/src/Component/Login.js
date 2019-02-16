@@ -34,7 +34,7 @@ class Login extends Component{
         <Label for="password">Password</Label>
         <Input onChange={this._onChange} value={this.state.password} type="password" name="password" placeholder="Password" />
         </FormGroup>
-        <Button>Submit</Button>
+        <Button color="primary">Submit</Button>
     </Form>
     
         )

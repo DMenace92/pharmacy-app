@@ -6,6 +6,7 @@ const rootReducer = combineReducers({
   user: usersReducer,
   meds: medReducers,
   notes: notesReducer,
+
 })
 
 export default rootReducer;

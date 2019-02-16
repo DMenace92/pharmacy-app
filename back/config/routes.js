@@ -34,8 +34,11 @@ module.exports = function(app){
     // Create medInfo
     app.post('/medInfo',medInfo.create);
     //retrive all meds
-    app.get('/medInfo/:id',medInfo.findAll)
+    app.get('/medInfo',medInfo.findAll)
     //update
+
+    //delete
+    app.delete('/medInfo/:id',medInfo.delete)
     // app.put(medInfo)
 
 
