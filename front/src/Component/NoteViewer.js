@@ -9,15 +9,23 @@ class NoteViewer extends Component{
     this.props.fetchNotes()
   }
   render(){
+    console.log(this.props.notes)
     return(
       <div>
-        <Container>
-          <Card>
-          <h6 className="noteText">this title place holder</h6>
-          <h6 className="noteText">this is the note place holder</h6>
+        <Container className="theOtherContainer">>
+
+        { this.props.notes && this.props.notes.map( note =>
+        <Card>
+          <h6 className="noteText">
+            {note.title}
+            </h6>
+          <h6 className="noteText">
+            {note.content}
+            </h6>
           <Button color="danger">Delete</Button>
           <Button>Edit</Button>
           </Card>
+          )}
 
         </Container>
         

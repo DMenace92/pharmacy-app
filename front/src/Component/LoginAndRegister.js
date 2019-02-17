@@ -8,8 +8,8 @@ class LoginAndRegister extends Component{
   render(){
     return(
       <div>
-      {/* <Button color="primary" tag={Link} to="/login">Login</Button>
-      <Button color="primary" tag={Link} to="/login">Register</Button> */}
+      <Button className ="lrbutton" color="primary" tag={Link} to="/login">Login</Button>
+      <Button className ="lrbutton" color="primary" tag={Link} to="/login">Register</Button>
       
       {/* <Link to="/login">Login</Link> */}
       {/* <Link to="/register">Register</Link> */}

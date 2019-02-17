@@ -29,14 +29,16 @@ componentDidMount(){
           <Button color="primary" tag={Link} to="/NoteViewer">View Notes</Button>
           <Button onSubmit={this._onSubmit} color="danger">Delete</Button>
         </Card>)}
+        <Button  className='addMed'color="primary" tag={Link} to="/medinfo">Add a Med</Button>
         
         
         </Container> 
+
         <Row>
       
 
-        {/* <Button  className='addMed'color="primary" tag={Link} to="/medinfo">Add a Med</Button>
-         */}
+        
+        
         </Row>
       </div>
     )

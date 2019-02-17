@@ -5,7 +5,7 @@ import NoteViewer from "../Component/NoteViewer";
 
 const mapStateToProps = state=> {
   return {
-    user: state.notes,
+    notes: state.notes.notes,
    
   }
 }

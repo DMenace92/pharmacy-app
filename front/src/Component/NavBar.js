@@ -9,10 +9,10 @@ class NavBar extends Component{
 
             <Navbar className="nav" color="dark" light>
             <NavbarBrand href="/" className="text-white" ></NavbarBrand>
-            <Button  color="primary" tag={Link} to="/login">Login</Button>
-            <Button color="primary" tag={Link} to="/register">Register</Button>
+            {/* <Button  color="primary" tag={Link} to="/login">Login</Button>
+            <Button color="primary" tag={Link} to="/register">Register</Button> */}
             
-            <Button  className='addMed'color="primary" tag={Link} to="/medinfo">Add a Med</Button>
+            {/* <Button  className='addMed'color="primary" tag={Link} to="/medinfo">Add a Med</Button> */}
         </Navbar>
     </div>
         )

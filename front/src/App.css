@@ -19,10 +19,25 @@ height:100vh;
   overflow-y: scroll;
   height:94vh;
 }
+.theOtherContainer{
+  padding:4px;
+  overflow-y: scroll;
+  height:85vh;
+}
 .nav{
   opacity: .8;
   height:6vh;
 }
 .noteText{
   opacity:.8;
+}
+.addMed{
+  position: absolute;
+  top:3px
+}
+.lrbutton{
+  position: absolute;
+  top:3px;
+  margin:2px;
+
 }
