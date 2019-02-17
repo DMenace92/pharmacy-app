@@ -27,7 +27,7 @@ module.exports = {
     //retreve all notes
     findAll: (req, res) => {
         console.log('hello')
-        Note.find(req.decode._id)
+        Note.find(req.params._id)
 
             .then(notes => {
                 res.send(notes);

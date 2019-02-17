@@ -17,6 +17,22 @@ const fetchNotesLoading = (note) => ({type: FETCH_NOTES_LOADING})
 export const FETCH_NOTES_ERROR = "FETCH_NOTES_ERROR"
 const fetchNotesError = () => ({ type: FETCH_NOTES_ERROR })
 
+//UPDATE
+export const UPDATE_NOTES_SUCCESS =
+"UPDATE_NOTES_SUCCESS"
+const updateNotesSuccess = () => ({ type:
+UPDATE_NOTES_SUCCESS})
+
+export const UPDATE_NOTES_LOADING =
+"UPDATE_NOTES_LOADING"
+const updateNotesLoading = () => ({ type:
+UPDATE_NOTES_LOADING})
+
+export const UPDATE_NOTES_ERROR =
+"UPDATE_NOTES_ERROR"
+const updateNotesError = () => ({ type:
+UPDATE_NOTES_ERROR})
+
 //DELETE
 export const DELETE_NOTES_SUCCESS = "DELETE_NOTES_SUCCESS"
 const deleteNotesSuccess = (id) => ({ type: DELETE_NOTES_SUCCESS, payload: id})
@@ -66,17 +82,47 @@ export const fetchNotes = (token) => dispatch => {
   })
   .then(res => res.json())
   .then(notes => {
+    
     dispatch(
       fetchNotesSuccess(notes)
     )
   })
+
   .catch(err => {
+    console.log(err)
     dispatch(
       fetchNotesError()
     )
   })
   
 }
+  //UPDATE
+  export const updateNotes = (_id, token) =>
+  dispatch => {
+    dispatch(
+      updateNotesLoading()
+    )
+    fetch('http://localhost:8000/notes/:id',{
+      method: "PUT",
+      body: JSON.stringify(_id),
+      header: {
+        'Content-Type': 'application/json',
+        'token' : token
+      }
+    })
+    .then(res => res.json())
+    .then(_id => {
+      dispatch(
+        updateNotesSuccess(_id)
+      )
+    })
+    .catch(err => {
+      dispatch(
+        updateNotesError()
+      )
+    })
+  }
+
 
   //DELETE
   export const deleteNotes = (_id, token) => dispatch => {

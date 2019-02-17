@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import { Container,Card,Button,Row,Col} from 'reactstrap';
+import { Container,Card,Button,Row} from 'reactstrap';
 import "../App.css"
 
 
@@ -26,7 +26,7 @@ componentDidMount(){
           <h6>Expired: {med.expired}</h6>
           <h6>Day Supply: {med.daySupply}</h6>
           <h6>Doctor: {med.doctor}</h6>
-          <Button >View Notes</Button>
+          <Button color="primary" tag={Link} to="/NoteViewer">View Notes</Button>
           <Button onSubmit={this._onSubmit} color="danger">Delete</Button>
         </Card>)}
         

@@ -36,7 +36,7 @@ module.exports = function(app){
     //retrive all meds
     app.get('/medInfo',medInfo.findAll)
     //update
-
+    
     //delete
     app.delete('/medInfo/:id',medInfo.delete)
     // app.put(medInfo)

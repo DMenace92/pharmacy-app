@@ -23,7 +23,9 @@ module.exports = {
 
             } else if(user){//match
                 delete user.password;
-                const token = jwt.sign({user}, secret)
+                const token = jwt.sign({user}, secret,
+                    // {expiresIn: "10m"}
+                    )
                 res.json({message: "Successfully signed in", token, user})
             }else {
                 res.json('success');

@@ -6,6 +6,7 @@ import RegisterContainer from './containers/RegisterContainer';
 import NotesContainer from './containers/NotesContainer';
 import LoginAndRegister from './Component/LoginAndRegister';
 import MedInfoContainer from "./containers/MedInfoContainer";
+import NoteViewerContainer from "./containers/NoteViewerContainer"
 import NavBar from "./Component/NavBar"
 
 import './App.css';
@@ -26,6 +27,7 @@ class App extends Component {
         <Route path="/register" component={RegisterContainer} />
         <Route exact path ="/main" component={MainPageContainer} />
         <Route exact path = "/notes" component= {NotesContainer} />
+        <Route path = "/noteViewer" component= {NoteViewerContainer} />
         </Switch>
       </div>
     );
