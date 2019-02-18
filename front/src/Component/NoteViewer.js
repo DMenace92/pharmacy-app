@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import {Button,Container,Card} from "reactstrap"
+import {Button,Container,Card,Navbar, NavbarBrand,Col} from "reactstrap"
 
 import { Link
 } from 'react-router-dom'
@@ -12,12 +12,21 @@ class NoteViewer extends Component{
     console.log(this.props.notes)
     return(
       <div>
+      <Navbar className="nav" color="dark" light>
+      <NavbarBrand href="/" className="text-white" ></NavbarBrand>
+      <Col sm={10}>
+          <Button color="primary" tag={Link} to="/main">Back</Button>
+          </Col>
+          <Button color="primary" tag={Link} to="/notes">Create Notes</Button>
+          
+      </Navbar>
+
         <Container className="theOtherContainer">>
 
         { this.props.notes && this.props.notes.map( note =>
         <Card>
           <h6 className="noteText">
-            {note.title}
+            Note Title: {note.title}
             </h6>
           <h6 className="noteText">
             {note.content}
@@ -29,8 +38,7 @@ class NoteViewer extends Component{
 
         </Container>
         
-        <Button color="primary" tag={Link} to="/notes">Create Notes</Button>
-        <Button color="primary" tag={Link} to="/main">Back</Button>
+        
       </div>
     )
   }

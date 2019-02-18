@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import{Link} from "react-router-dom"
 
-import { Button, Form, FormGroup, Label, Container,Card} from 'reactstrap';
+import { Button, Form, FormGroup, Label, Container,Card,Navbar,NavbarBrand,Row,Col} from 'reactstrap';
 class Notes extends Component{
 
     state = {
@@ -24,23 +24,47 @@ class Notes extends Component{
     
     render(){
         return(
+            <div>
+              <Navbar className="nav" color="dark" light>
+             <NavbarBrand href="/" className="text-white" ></NavbarBrand>
+             <Button  className='addMed'color="primary" tag={Link} to="/noteViewer">back</Button>
+             </Navbar>
+       
             <Container>
-                <Card>
+          
+               
              <Form onSubmit={this._onSubmit}>
+             <Card>
+             <Row sm={2}>
                 <FormGroup>
-        <Label for="title"></Label>
-        <textarea onChange={this._onChange} value={this.state.title} name="title" id="" cols="30" rows="1"></textarea>
-      
+                <Col >      
+        <Label for="title">
+            <h4>Title</h4>
+            </Label>
+        
+        <textarea className="textNotes" onChange={this._onChange} value={this.state.title} name="title" id="" cols="132" rows="1"></textarea>
+        </Col>
         </FormGroup>
+        </Row>
+        </Card>
+        <Card>
+        <Row>
         <FormGroup>
-        <Label for="Notes"></Label>
-        <textarea onChange={this._onChange} value={this.state.content} name="content" id="" cols="30" rows="7"></textarea>
+        <Col>
+        <Label for="Notes">
+        <h4>Notes</h4>
+        </Label>
+        
+        <textarea className="textNotes" onChange={this._onChange} value={this.state.content} name="content" id="" cols="132" rows="20"></textarea>
+        </Col>
         </FormGroup>
+        </Row>
         <Button>Submit</Button>
+        </Card>
     </Form>
-    </Card>
-    <Button color="primary" tag={Link} to="/noteViewer">Back</Button>
+    
     </Container>
+    </div>
         )
     }
 }

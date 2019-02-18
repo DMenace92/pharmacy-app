@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
-import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {Link} from 'react-router-dom';
 // import Register from "./Component/Register"
 class Login extends Component{
     state = {
         email: "",
         password: "",
         username:"",
-        name:""
+        name:"",
+        modal : true
     }
     
     _onSubmit = (e) => {
@@ -24,7 +26,12 @@ class Login extends Component{
     
     render(){
         return(
-            
+    <div>
+        <Modal isOpen={this.state.modal} modalTransition={{ timeout: 700 }} backdropTransition={{ timeout: 700 }}
+        toggle={this.toggle} className={this.props.className}>
+        <ModalHeader toggle={this.toggle}>LogIn</ModalHeader>
+        <ModalBody>
+
     <Form onSubmit={this._onSubmit}>
         <FormGroup>
         <Label for="email">Email</Label>
@@ -36,6 +43,15 @@ class Login extends Component{
         </FormGroup>
         <Button color="primary">Submit</Button>
     </Form>
+        </ModalBody>
+        
+        {/* <Button color="primary">Submit</Button> */}
+        <Button tag={Link} to="/"color="secondary" >Cancel</Button>
+        
+        </Modal>
+    </div>
+            
+
     
         )
     }

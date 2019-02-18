@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 class Register extends Component {
 
@@ -7,7 +8,8 @@ class Register extends Component {
     name:"",
     username: "",
     password: "",
-    email:""
+    email:"",
+    modal : true
   }
 
   _onSubmit = (e) => {
@@ -23,26 +25,36 @@ class Register extends Component {
   render() {
     
     return (
-      <Form onSubmit={this._onSubmit}>
-        Register
+       <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} className={this.props.className}>
+          <ModalHeader toggle={this.toggle}>Register</ModalHeader>
+          <ModalBody>
+
+          <Form onSubmit={this._onSubmit}>
         <FormGroup>
           <Label for="username">Username</Label>
           <Input onChange={this._onChange} value={this.state.username} type="text" name="username" placeholder="Username" />
         </FormGroup>
         <FormGroup>
-          <Label for="name">name</Label>
+          <Label for="name">Name</Label>
           <Input onChange={this._onChange} value={this.state.name} type="text" name="name" placeholder="name" />
         </FormGroup>
         <FormGroup>
-          <Label for="email">email</Label>
-          <Input onChange={this._onChange} value={this.state.email} type="text" name="email" placeholder="email" />
+          <Label for="email">Email</Label>
+          <Input onChange={this._onChange} value={this.state.email} type="Email" name="Email"  />
         </FormGroup>
         <FormGroup>
           <Label for="password">Password</Label>
           <Input onChange={this._onChange} value={this.state.password} type="password" name="password" placeholder="Password" />
         </FormGroup>
-        <Button>Submit</Button>
+        <Button color="primary">Submit</Button>
+        
       </Form>
+          
+          </ModalBody>
+          <Button tag={Link} to="/"color="secondary" >Cancel</Button>
+         
+        </Modal>
+      
     )
   }
 }

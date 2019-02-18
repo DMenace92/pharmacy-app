@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { Button, Form, FormGroup, Label, Input, Container,Modal,ModalBody,ModalFooter,ModalHeader } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Container,Modal,ModalBody,ModalFooter,ModalHeader,Navbar,NavbarBrand } from 'reactstrap';
+import {Link} from 'react-router-dom'
 import '../App.css';
 
 class MedInfo extends Component{
@@ -42,7 +43,13 @@ _onChange = ({target}) =>  {
   
   render(){
     return(
+      <div>
+       <Navbar className="nav" color="dark" light>
+  <NavbarBrand href="/" className="text-white" ></NavbarBrand>
+  <Button  className='addMed'color="primary" tag={Link} to="/main">back</Button>
+   </Navbar>
       <Container >
+     
       <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Your med info</ModalHeader>
           <ModalBody>
@@ -104,7 +111,7 @@ _onChange = ({target}) =>  {
         <FormGroup className = "medFormText">
           <Label for="Medication name">Doctor</Label>
           <Input onChange={this._onChange} value={this.state.doctor}
-          type="" name="doctor" id="exampleEmail" placeholder="with a placeholder" />
+          type="" name="doctor" id="exampleEmail"/>
         </FormGroup>
         <FormGroup className = "medFormText">
           <Label for="exampleText">Directions</Label>
@@ -115,6 +122,7 @@ _onChange = ({target}) =>  {
         <Button color="primary">Submit</Button>
       </Form>
       </Container>
+      </div>
     )
   }
 }
