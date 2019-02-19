@@ -25,6 +25,9 @@ const logoutSuccess = () => ({ type: LOGOUT_SUCCESS })
 //THUNKS
 
 export const login = (user) => dispatch => {
+  dispatch(
+    loginLoading()
+  )
   
   return fetch('http://localhost:8000/login', {
     method: 'POST',

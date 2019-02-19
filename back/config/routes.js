@@ -12,7 +12,7 @@ module.exports = function(app){
 
 
     //AUTH______________________________________________________
-    // app.use(jwtAuth)
+    app.use(jwtAuth)
 
 
     //USERS after auth

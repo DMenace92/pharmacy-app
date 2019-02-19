@@ -83,10 +83,15 @@ export const fetchMeds = (token) => dispatch => {
     dispatch(
       deleteMedsLoading(id)
     )
-    console.log(id)
+    // console.log(id)
     fetch('http://localhost:8000/medInfo/'+ id, {
       method: 'DELETE',
+      "headers":{
+      'token' : localStorage.getItem('token'),
+      },
+     
       // mode: "no-cors",
+      
     })
     
     .then(res => res.json())

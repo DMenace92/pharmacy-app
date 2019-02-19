@@ -2,9 +2,10 @@ const MedInfo = require('../models/medInfo');
 module.exports = {
 
   create: (req, res,next) => {
-// console.log(req.body)
+console.log(req.decoded)
   
 let infoData = {
+    userId: req.decoded.user._id,
     medication: req.body.medication,
     quantity: req.body.quantity,
     doctor: req.body.doctor,
@@ -23,9 +24,11 @@ MedInfo.create(infoData, function(err,medInfo){
 })
 },
 findAll: (req, res, next) => {
-
+  const autUse = req.decoded.user._id
   let find ={
-
+    userId: {
+     $eq: autUse
+    }
   }
   MedInfo.find(find,function(err,medInfo){
     if(err){
@@ -43,10 +46,10 @@ deleteOne: (req,res)=>{
       if(!meds){
         return res.status(400).send({
           
-          _id: "med not found with id " + req.params.id
+          _id: "med not found with id " + req.params._id
       });
   }else{
-  res.send({
+  res.json({
       _id: meds._id
       // , token
   });

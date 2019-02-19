@@ -12,7 +12,6 @@ class NoteViewer extends Component{
     this.props.deleteNotes(_id)
   }
   render(){
-    console.log(this.props.notes)
     return(
       <div>
       <Navbar className="nav" color="dark" light>
@@ -32,12 +31,12 @@ class NoteViewer extends Component{
         <Container className="theOtherContainer">>
 
         { this.props.notes && this.props.notes.map( note =>
-        <Card>
+        <Card key={note._id} >
           <h6 className="noteText">
-            Title:<h4>{note.title} </h4> 
+            Title: {note.title}  
             </h6>
           <h6 className="noteText">
-            Notes: <h5> {note.content} </h5>
+            Notes:v{note.content}
             </h6>
           <Button onClick={() => this.props.deleteNotes(note._id)} color="danger">Delete</Button>
           <Button>Edit</Button>

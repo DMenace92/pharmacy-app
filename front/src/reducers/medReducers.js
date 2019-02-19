@@ -73,7 +73,7 @@ const medReducers = (state = initState, action) => {
     console.log('here')
     return{
       ...state,
-      meds : state.meds.filter(med => med._id !== action.payload._id )
+      meds : state.meds.filter(med => med._id !== action.payload._id)
 
     }
     case DELETE_MEDS_ERROR:

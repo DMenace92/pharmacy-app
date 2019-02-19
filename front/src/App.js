@@ -15,6 +15,7 @@ class App extends Component {
 
   render() {
     console.log(LoginContainer)
+    console.log(Router)
     return (
       <div className="App">
         

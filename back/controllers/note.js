@@ -1,14 +1,16 @@
 const Note = require('../models/note');
 module.exports = {
-
+    
     //create and save notes
     create: (req, res) => {
+        
         if (!req.body.content) {
             return res.status(400).send({
                 message: "Note content can not be empty"
             });
         }
         const note = new Note({
+            userId: req.decoded.user._id,
             title: req.body.title || "Untitled Note",
             content: req.body.content
         });
@@ -26,7 +28,12 @@ module.exports = {
     
     //retreve all notes
     findAll: (req, res) => {
-        console.log('hello')
+        // const otherUse = req.decoded.notes._id
+        // let find ={
+        //   userId: {
+        //    $eq: otherUse
+        //   }
+        // }
         Note.find(req.params._id)
 
             .then(notes => {
@@ -40,6 +47,12 @@ module.exports = {
 
     //find note by id
     findOne: (req, res) => {
+        const newUse = req.decoded.user._id
+        let findById ={
+          userId: {
+           $eq: newUse
+          }
+        }
         Note.findById(req.params.noteId)
             .then(note => {
                 if (!note) {
@@ -106,7 +119,7 @@ module.exports = {
                 _id: "notes not found with id " + req.params.id
             });
         }else{
-        res.send({
+        res.json({
             _id: notes._id
             // , token
         });

@@ -30,7 +30,7 @@ componentDidMount(){
     </Navbar>
         <Container className="theContainer">
           
-        { this.props.medInfo && this.props.medInfo.map( med => <Card className="card">
+        { this.props.medInfo && this.props.medInfo.map( med => <Card key ={med._id}className="card">
         {/* {console.log(med._id)} */}
           <Row sm={3}>
           <Col sm={3}>

@@ -125,12 +125,15 @@ export const fetchNotes = (token) => dispatch => {
 
 
   //DELETE
-  export const deleteNotes = (id, token) => dispatch => {
+  export const deleteNotes = (_id, token) => dispatch => {
     dispatch(
-      deleteNotesLoading(id)
+      deleteNotesLoading(_id)
     )
-    fetch('http://localhost:8000/notes/' + id, {
+    fetch('http://localhost:8000/notes/' + _id, {
       method: 'DELETE',
+      headers: {
+        'token' : localStorage.getItem('token'),
+      },
       // body: JSON.stringify(_id),
       // headers: {
       //   'Content-Type': 'application/json',

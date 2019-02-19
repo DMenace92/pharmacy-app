@@ -3,7 +3,10 @@ mongoose.connect('mongodb://localhost/pharmacy',{useNewUrlParser: true })
 
 const medInfoSchema = mongoose.Schema({
  
-    userId: String,
+    userId: {
+        type: String,
+        required:true,
+    },
     medication:String,
     quantity: String,
     doctor: String,
