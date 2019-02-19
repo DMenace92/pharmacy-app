@@ -6,7 +6,6 @@ import NoteViewer from "../Component/NoteViewer";
 const mapStateToProps = state=> {
   return {
     notes: state.notes.notes,
-   
   }
 }
 const mapDispatchToProps = dispatch => {
