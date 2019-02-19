@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody,Col,Row} from 'reactstrap';
 import {Link} from 'react-router-dom';
 // import Register from "./Component/Register"
 class Login extends Component{
@@ -41,12 +41,20 @@ class Login extends Component{
         <Label for="password">Password</Label>
         <Input onChange={this._onChange} value={this.state.password} type="password" name="password" placeholder="Password" />
         </FormGroup>
-        <Button color="primary">Submit</Button>
+        <Row sm={12}>
+        <Col sm={6}>
+        <Button  color="primary">Submit</Button>
+        </Col>
+        <Col>
+        <Button className ="lrbutton" color="primary" tag={Link} to="/register">Register</Button>
+        </Col>
+        </Row>
     </Form>
         </ModalBody>
         
+        
         {/* <Button color="primary">Submit</Button> */}
-        <Button tag={Link} to="/"color="secondary" >Cancel</Button>
+        {/* <Button tag={Link} to="/"color="secondary" >Cancel</Button> */}
         
         </Modal>
     </div>

@@ -70,9 +70,10 @@ const medReducers = (state = initState, action) => {
         medsLoading: true
     }
     case DELETE_MEDS_SUCCESS:
+    console.log('here')
     return{
       ...state,
-      meds : state.meds.filter(med => med !== action.payload )
+      meds : state.meds.filter(med => med._id !== action.payload._id )
 
     }
     case DELETE_MEDS_ERROR:

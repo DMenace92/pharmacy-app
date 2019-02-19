@@ -15,7 +15,7 @@ class Notes extends Component{
         console.log(this.state);
         console.log(this.props);
         this.props.notes(this.state);
-        this.setState({titel:"",content:""})
+        this.setState({title:"",content:""})
     }
     
     _onChange = ({target}) =>  {
@@ -25,17 +25,15 @@ class Notes extends Component{
     render(){
         return(
             <div>
-              <Navbar className="nav" color="dark" light>
-             <NavbarBrand href="/" className="text-white" ></NavbarBrand>
-             <Button  className='addMed'color="primary" tag={Link} to="/noteViewer">back</Button>
-             </Navbar>
-       
+            <Navbar className="nav" color="dark" light>
+            <NavbarBrand href="/" className="text-white" ></NavbarBrand>
+            <Button  className='addMed'color="primary" tag={Link} to="/noteViewer">back</Button>
+            </Navbar>
+
             <Container>
-          
-               
-             <Form onSubmit={this._onSubmit}>
-             <Card>
-             <Row sm={2}>
+            <Form onSubmit={this._onSubmit}>
+            <Card>
+            <Row sm={2}>
                 <FormGroup>
                 <Col >      
         <Label for="title">

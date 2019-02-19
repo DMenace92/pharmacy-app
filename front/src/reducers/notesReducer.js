@@ -57,6 +57,7 @@ switch(action.type){
   case UPDATE_NOTES_SUCCESS:
   return{
     ...state,
+    
     id: "",
     title: "",
     content:"",
@@ -77,7 +78,7 @@ switch(action.type){
   case  DELETE_NOTES_SUCCESS:
   return {
     ...state,
-    content : state.notes.filter(notes => notes.id !== action.payload.id )
+    notes: state.notes.filter(notes => notes._id !== action.payload._id )
   }
   case DELETE_NOTES_ERROR:
   return{

@@ -96,28 +96,49 @@ module.exports = {
     },
 
     //delete notes
-    delete: (req, res) => {
-        Note.findByIdAndRemove(req.params.noteId)
-            .then(note => {
-                if (!note) {
-                    return res.status(404).send({
-                        message: "Note not found with id " + req.params.noteId
-                    });
-                }
-                res.send({
-                    message: "Note deleted successfully!"
-                });
-            }).catch(err => {
-                if (err.kind === 'ObjectId' || err.name === 'NotFound') {
-                    return res.status(404).send({
-                        message: "Note not found with id " + req.params.noteId
-                    });
-                }
-                return res.status(500).send({
-                    message: "Could not delete note with id " + req.params.noteId
-                });
+
+    deleteOne: (req,res)=>{
+        Note.findByIdAndRemove(req.params.id)
+          .then(notes =>{
+            if(!notes){
+              return res.status(400).send({
+                
+                _id: "notes not found with id " + req.params.id
             });
-    },
+        }else{
+        res.send({
+            _id: notes._id
+            // , token
+        });
+      }
+      }).catch(err => {
+        throw new Error(err)
+      });
+      
+            }
+      }
+//     delete: (req, res) => {
+//         Note.findByIdAndRemove(req.params.noteId)
+//             .then(note => {
+//                 if (!note) {
+//                     return res.status(404).send({
+//                         message: "Note not found with id " + req.params.noteId
+//                     });
+//                 }
+//                 res.send({
+//                     message: "Note deleted successfully!"
+//                 });
+//             }).catch(err => {
+//                 if (err.kind === 'ObjectId' || err.name === 'NotFound') {
+//                     return res.status(404).send({
+//                         message: "Note not found with id " + req.params.noteId
+//                     });
+//                 }
+//                 return res.status(500).send({
+//                     message: "Could not delete note with id " + req.params.noteId
+//                 });
+//             });
+//     },
     
 
-}
+// }

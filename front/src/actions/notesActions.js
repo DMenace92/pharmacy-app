@@ -125,27 +125,27 @@ export const fetchNotes = (token) => dispatch => {
 
 
   //DELETE
-  export const deleteNotes = (_id, token) => dispatch => {
+  export const deleteNotes = (id, token) => dispatch => {
     dispatch(
-      deleteNotesLoading()
+      deleteNotesLoading(id)
     )
-    fetch('http://localhost:8000/notes', {
-      method: 'POST',
-      body: JSON.stringify(_id),
-      headers: {
-        'Content-Type': 'application/json',
-        'token' : token
-      }
+    fetch('http://localhost:8000/notes/' + id, {
+      method: 'DELETE',
+      // body: JSON.stringify(_id),
+      // headers: {
+      //   'Content-Type': 'application/json',
+      //   'token' : token
+      // }
     })
     .then(res => res.json())
-    .then(_id => {
+    .then(id => {
       dispatch(
-        deleteNotesSuccess(_id)
+        deleteNotesSuccess(id)
       )
     })
     .catch(err => {
       dispatch(
-        deleteNotesError()
+        deleteNotesError(err)
       )
     })
   }

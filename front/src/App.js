@@ -4,7 +4,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import MainPageContainer from './containers/MainPageContainer';
 import RegisterContainer from './containers/RegisterContainer';
 import NotesContainer from './containers/NotesContainer';
-import LoginAndRegister from './Component/LoginAndRegister';
+// import LoginAndRegister from './Component/LoginAndRegister';
 import MedInfoContainer from "./containers/MedInfoContainer";
 import NoteViewerContainer from "./containers/NoteViewerContainer"
 import NavBar from "./Component/NavBar"
@@ -21,9 +21,9 @@ class App extends Component {
       <NavBar />
         
         <Switch>
-        <Route path ="//" component={LoginAndRegister} />
+        {/* <Route path ="//" component={LoginAndRegister} /> */}
         <Route path ="/medinfo" component = {MedInfoContainer} />
-        <Route path="/login" component={LoginContainer} />
+        <Route path="//" component={LoginContainer} />
         <Route path="/register" component={RegisterContainer} />
         <Route exact path ="/main" component={MainPageContainer} />
         <Route exact path = "/notes" component= {NotesContainer} />

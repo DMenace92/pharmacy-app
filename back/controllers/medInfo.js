@@ -2,7 +2,7 @@ const MedInfo = require('../models/medInfo');
 module.exports = {
 
   create: (req, res,next) => {
-console.log(req.body)
+// console.log(req.body)
   
 let infoData = {
     medication: req.body.medication,
@@ -25,7 +25,7 @@ MedInfo.create(infoData, function(err,medInfo){
 findAll: (req, res, next) => {
 
   let find ={
-   
+
   }
   MedInfo.find(find,function(err,medInfo){
     if(err){
@@ -36,26 +36,34 @@ findAll: (req, res, next) => {
   })
 },
 //delete
-delete: (req,res)=>{
+
+deleteOne: (req,res)=>{
   MedInfo.findByIdAndRemove(req.params.id)
     .then(meds =>{
       if(!meds){
-        return res.status(404).send({
-          message: "Note not found with id " + req.params.id
+        return res.status(400).send({
+          
+          _id: "med not found with id " + req.params.id
       });
-  }
+  }else{
   res.send({
-      message: "meds deleted successfully!"
+      _id: meds._id
+      // , token
   });
+}
+
 }).catch(err => {
-  if (err.kind === 'ObjectId' || err.name === 'NotFound') {
-      return res.status(404).send({
-          message: "meds not found with id " + req.params.Id
-      });
-  }
-  return res.status(500).send({
-      message: "Could not delete meds with id " + req.params.Id
-  });
+  
+  throw new Error(err)
+  
+  // if (err.kind === 'ObjectId' || err.name === 'NotFound') {
+  //     return res.status(404).send({
+  //         message: "meds not found with id " + req.params.Id
+  //     });
+  // }
+  // return res.status(500).send({
+  //     message: "Could not delete meds with id " + req.params.Id
+  // });
 });
 
       }

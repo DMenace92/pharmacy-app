@@ -12,7 +12,7 @@ module.exports = function(app){
 
 
     //AUTH______________________________________________________
-    app.use(jwtAuth)
+    // app.use(jwtAuth)
 
 
     //USERS after auth
@@ -28,7 +28,7 @@ module.exports = function(app){
     // Update a Note with noteId
     app.put('/notes/:noteId', notes.update);
     // Delete a Note with noteId
-    app.delete('/notes/:noteId', notes.delete);
+    app.delete('/notes/:id', notes.deleteOne);
 
     //medinfo CURD_____________________________________________
     // Create medInfo
@@ -38,7 +38,7 @@ module.exports = function(app){
     //update
     
     //delete
-    app.delete('/medInfo/:id',medInfo.delete)
+    app.delete('/medInfo/:id',medInfo.deleteOne)
     // app.put(medInfo)
 
 

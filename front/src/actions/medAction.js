@@ -79,26 +79,24 @@ export const fetchMeds = (token) => dispatch => {
 }
   //DELETE
   export const deleteMeds = (id, token) => dispatch => {
+
     dispatch(
-      deleteMedsLoading()
+      deleteMedsLoading(id)
     )
-    fetch('http://localhost:8000/medInfo', {
-      method: 'POST',
-      body: JSON.stringify(id),
-      headers: {
-        'Content-Type': 'application/json',
-        'token' : token
-      }
+    console.log(id)
+    fetch('http://localhost:8000/medInfo/'+ id, {
+      method: 'DELETE',
+      // mode: "no-cors",
     })
+    
     .then(res => res.json())
     .then(id => {
-      dispatch(
-        deleteMedsSuccess(id)
-      )
+      dispatch(deleteMedsSuccess(id))
     })
     .catch(err => {
+      console.log(err)
       dispatch(
-        deleteMedsError()
+        deleteMedsError(err)
       )
     })
   }
