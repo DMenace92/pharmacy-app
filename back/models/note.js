@@ -6,6 +6,10 @@ const notesSchema = mongoose.Schema({
         type: String,
         required:true,
     },
+    // medId:{
+    //     type: String,
+    //     required:true,
+    // },
     title: String,
     content: String
 }, {

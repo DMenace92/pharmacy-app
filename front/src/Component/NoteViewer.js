@@ -36,10 +36,10 @@ class NoteViewer extends Component{
             Title: {note.title}  
             </h6>
           <h6 className="noteText">
-            Notes:v{note.content}
+            Notes: {note.content}
             </h6>
           <Button onClick={() => this.props.deleteNotes(note._id)} color="danger">Delete</Button>
-          <Button>Edit</Button>
+          {/* <Button>Edit</Button> */}
           </Card>
           )}
 

@@ -28,31 +28,8 @@ const deleteMedsError = () => ({ type: DELETE_MEDS_ERROR })
 export const DELETE_MEDS_LOADING = "DELETE_MEDS_LOADING"
 const deleteMedsLoading = () => ({ type: DELETE_MEDS_LOADING })
 //thunk
-export const createMeds = (meds) => dispatch => {
-  dispatch(
-    createMedsLoading()
-  )
-  fetch('http://localhost:8000/medInfo', {
-    method: 'POST',
-    body: JSON.stringify(meds),
-    headers: {
-      'Content-Type': 'application/json',
-      'token' : localStorage.getItem('token')
-    }
-  })
-  .then(res => res.json())
-  .then(meds => {
-    dispatch(
-      createMedsSuccess(meds)
-    )
-  })
-  .catch(err => {
-    dispatch(
-      createMedsError()
-    )
-  })
-}
 
+//FETCH
 export const fetchMeds = (token) => dispatch => {
   dispatch(
     fetchMedsLoading()
@@ -77,6 +54,57 @@ export const fetchMeds = (token) => dispatch => {
   })
   
 }
+
+
+export const createMeds = (meds) => dispatch => {
+  dispatch(
+    createMedsLoading()
+  )
+  fetch('http://localhost:8000/medInfo', {
+    method: 'POST',
+    body: JSON.stringify(meds),
+    headers: {
+      'Content-Type': 'application/json',
+      'token' : localStorage.getItem('token')
+    }
+  })
+  .then(res => res.json())
+  .then(meds => {
+    dispatch(
+      createMedsSuccess(meds)
+    )
+  })
+  .catch(err => {
+    dispatch(
+      createMedsError()
+    )
+  })
+}
+// //FETCH
+// export const fetchMeds = (token) => dispatch => {
+//   dispatch(
+//     fetchMedsLoading()
+//   )
+//   fetch('http://localhost:8000/medInfo', {
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'token' : localStorage.getItem('token')
+//     }
+//   })
+//   .then(res => res.json())
+//   .then(meds => {
+//     console.log(meds)
+//     dispatch(
+//       fetchMedsSuccess(meds)
+//     )
+//   })
+//   .catch(err => {
+//     dispatch(
+//       fetchMedsError()
+//     )
+//   })
+  
+// }
   //DELETE
   export const deleteMeds = (id, token) => dispatch => {
 

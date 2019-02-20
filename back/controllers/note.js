@@ -3,7 +3,7 @@ module.exports = {
     
     //create and save notes
     create: (req, res) => {
-        
+        // console.log(req.decoded)
         if (!req.body.content) {
             return res.status(400).send({
                 message: "Note content can not be empty"
@@ -26,15 +26,15 @@ module.exports = {
             });
     },
     
-    //retreve all notes
+    // retreve all notes
     findAll: (req, res) => {
-        // const otherUse = req.decoded.notes._id
-        // let find ={
-        //   userId: {
-        //    $eq: otherUse
-        //   }
-        // }
-        Note.find(req.params._id)
+        const otherUse = req.decoded.user._id
+        let find ={
+          userId: {
+           $eq: otherUse
+          }
+        }
+        Note.find(find)
 
             .then(notes => {
                 res.send(notes);
@@ -46,32 +46,32 @@ module.exports = {
     },
 
     //find note by id
-    findOne: (req, res) => {
-        const newUse = req.decoded.user._id
-        let findById ={
-          userId: {
-           $eq: newUse
-          }
-        }
-        Note.findById(req.params.noteId)
-            .then(note => {
-                if (!note) {
-                    return res.status(404).send({
-                        message: "Note not found with id " + req.params.noteId
-                    });
-                }
-                res.send(note);
-            }).catch(err => {
-                if (err.kind === 'ObjectId') {
-                    return res.status(404).send({
-                        message: "Note not found with id " + req.params.noteId
-                    });
-                }
-                return res.status(500).send({
-                    message: "Error retrieving note with id " + req.params.noteId
-                });
-            });
-    },
+    // findOne: (req, res) => {
+    //     const newUse = req.decoded.user._id
+    //     let findById ={
+    //       userId: {
+    //        $eq: newUse
+    //       }
+    //     }
+    //     Note.findById(req.params.noteId)
+    //         .then(note => {
+    //             if (!note) {
+    //                 return res.status(404).send({
+    //                     message: "Note not found with id " + req.params.noteId
+    //                 });
+    //             }
+    //             res.send(note);
+    //         }).catch(err => {
+    //             if (err.kind === 'ObjectId') {
+    //                 return res.status(404).send({
+    //                     message: "Note not found with id " + req.params.noteId
+    //                 });
+    //             }
+    //             return res.status(500).send({
+    //                 message: "Error retrieving note with id " + req.params.noteId
+    //             });
+    //         });
+    // },
 
     //update notes 
     update: (req, res) => {

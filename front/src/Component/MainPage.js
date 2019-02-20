@@ -71,9 +71,9 @@ componentDidMount(){
           
           </Row>
           <Row lg={12}>
-          <Col md={6}>
+          {/* <Col md={6}>
           <Button color="primary" tag={Link} to="/NoteViewer">View Notes</Button>
-          </Col>
+          </Col> */}
           <Col md={0}>
           {/* <Button onClick={() => this.props.deleteMeds(med.id)} color="danger">Delete</Button> */}
 
@@ -82,6 +82,9 @@ componentDidMount(){
           </Col>
           </Row>
         </Card>)}
+        <Col md={6}>
+          <Button color="primary" tag={Link} to="/NoteViewer">View Notes</Button>
+          </Col>
         </Container> 
         
         <Row>
