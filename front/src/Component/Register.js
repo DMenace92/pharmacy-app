@@ -39,8 +39,8 @@ class Register extends Component {
           <Input onChange={this._onChange} value={this.state.name} type="text" name="name" placeholder="name" />
         </FormGroup>
         <FormGroup>
-          <Label for="email">Email</Label>
-          <Input onChange={this._onChange} value={this.state.email} type="Email" name="Email"  />
+          <Label for="Email">Email</Label>
+          <Input onChange={this._onChange} value={this.state.email} type="Email" name="email"  />
         </FormGroup>
         <FormGroup>
           <Label for="password">Password</Label>

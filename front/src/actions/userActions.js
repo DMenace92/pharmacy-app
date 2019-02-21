@@ -40,7 +40,7 @@ export const login = (user) => dispatch => {
 
     .then(res => res.json())
     .then(user => {
-      console.log(user)
+      // console.log(user)
       dispatch(
         loginSuccess(user)
       )

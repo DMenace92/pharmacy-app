@@ -14,38 +14,37 @@ componentDidMount(){
     this.props.deleteMeds(_id)
   
   }
-
   render() {
    
    
     return ( 
       
-      <div>
+      <div className="divSize">
   <Navbar className="nav" color="dark" light>
+    
   <NavbarBrand href="/" className="text-white" ></NavbarBrand>
-        <Button  className='sign out'color="primary" tag={Link} to="/">sign out</Button>
   
-        <Button  className='addMed'color="primary" tag={Link} to="/medinfo">Add a Med</Button>
-
+          <Button onClick={() => this.props.logout(this.props.user)} color="primary" tag={Link} to="/">sign out</Button>
     </Navbar>
+
         <Container className="theContainer">
+        
           
         { this.props.medInfo && this.props.medInfo.map( med => <Card key ={med._id}className="card">
         {/* {console.log(med._id)} */}
           <Row sm={3}>
-          <Col sm={3}>
+          <Col sm={6}>
           <h4>Medication: {med.medication}</h4>
           </Col>
-          <br/>
+          
           <Col sm={3}>
-          <h4>Quontity: {med.quantity}</h4>
+          <h4>Quantity: {med.quantity}</h4>
           </Col>
           <Col sm={3}>
           <h6>Date Written: {med.dateWritten}</h6>
           </Col>
+          
           </Row>
-
-
           <Row sm={3}>
           <Col sm={12}>
           <h4>Directions: {med.directions}</h4>
@@ -57,7 +56,7 @@ componentDidMount(){
           </Col>
           
           
-          <Col sm={3}>
+          <Col sm={4}>
           <h6>Expired: {med.expired}</h6>
           </Col>
           
@@ -82,13 +81,21 @@ componentDidMount(){
           </Col>
           </Row>
         </Card>)}
-        <Col md={6}>
-          <Button color="primary" tag={Link} to="/NoteViewer">View Notes</Button>
-          </Col>
+       
         </Container> 
         
         <Row>
         </Row>
+        <Navbar className="nav" color="dark" light>
+  <NavbarBrand href="/" className="text-white" ></NavbarBrand>
+        {/* <Button  className='signOut'color="primary" tag={Link} to="/">sign out</Button> */}
+  
+        <Button  color="primary" tag={Link} to="/medinfo">Add a Med</Button>
+       
+          <Button color="primary" tag={Link} to="/NoteViewer">View Notes</Button>
+         
+          
+    </Navbar>
       </div>
     )
   }

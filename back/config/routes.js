@@ -51,9 +51,7 @@ const jwtAuth = (req, res, next) => {
       jwt.verify(token, secret, (err, decoded) => {
         if (err) {
           console.log(err)
-          return res.status(401).send({
-            message: 'You are not authorized, Please log in to continue.'
-          });
+          return res.sendStatus(401)
         } else {
           delete decoded.password;
           req.decoded = decoded;
@@ -61,9 +59,8 @@ const jwtAuth = (req, res, next) => {
         }
       })
     } else {
-      return res.status(401).send({
-        message: 'You are not authorized, Please log in to continue.'
-      });
+      return res.sendStatus(401)
+     
     }
   
   }

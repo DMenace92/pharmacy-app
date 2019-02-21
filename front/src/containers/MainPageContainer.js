@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import MainPage from '../Component/MainPage';
 import { fetchMeds,deleteMeds } from '../actions/medAction';
+import {logout} from '../actions/userActions'
 
 
 const mapStateToProps = state => {
@@ -20,6 +21,9 @@ const mapDispatchToProps = dispatch => {
       
       deleteMeds: (id) =>{
         dispatch(deleteMeds(id))
+      },
+      logout: (user) =>{
+        dispatch(logout(user));
       }
     }
 

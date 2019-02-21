@@ -17,18 +17,29 @@ height:100vh;
 .theContainer{
   padding:4px;
   overflow-y: scroll;
-  height:94vh;
+  height:88.3vh;
 }
 .theOtherContainer{
   padding:4px;
   overflow-y: scroll;
-  height:94vh;
+  height:90vh;
 }
 .nav{
   opacity: .8;
-  height:6vh;
+  /* height:6vh; */
 }
 .noteText{
   opacity:.8;
 }
+.divSize{
+  width:100vw;
+}
+/* .viewNotes{
+  position: absolute;
+  right:50px;
 
+} */
+.signOut{
+  position: absolute;
+  top:8px;
+}

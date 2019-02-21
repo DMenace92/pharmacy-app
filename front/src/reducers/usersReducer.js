@@ -48,15 +48,16 @@ const userReducer = (state = initState, action) => {
         registerError: true
       }
     case LOGOUT_SUCCESS:
+    localStorage.removeItem("token")
       return {
         ...state,
         id: "",
         username: "",
-        token: "",
         loginLoading: false,
         loginError: false,
         registerError: false
       }
+      
     default:
       return state;
   }

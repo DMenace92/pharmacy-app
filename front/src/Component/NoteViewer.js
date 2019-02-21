@@ -16,16 +16,17 @@ class NoteViewer extends Component{
       <div>
       <Navbar className="nav" color="dark" light>
       <NavbarBrand href="/" className="text-white" ></NavbarBrand>
+      <Row>
+          <Col sm={12}>
+          <Button color="primary" tag={Link} to="/notes">Create Notes</Button>
+          </Col>
+          </Row>
       <Row sm={1}>
       <Col sm={2}>
           <Button color="primary" tag={Link} to="/main">Back</Button>
           </Col>
           </Row>
-          <Row>
-          <Col sm={12}>
-          <Button color="primary" tag={Link} to="/notes">Create Notes</Button>
-          </Col>
-          </Row>
+         
       </Navbar>
 
         <Container className="theOtherContainer">>

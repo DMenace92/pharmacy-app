@@ -40,7 +40,7 @@ class Notes extends Component{
             <h4>Title</h4>
             </Label>
         
-        <textarea className="textNotes" onChange={this._onChange} value={this.state.title} name="title" id="" cols="132" rows="1"></textarea>
+        <textarea className="textNotes" onChange={this._onChange} value={this.state.title} name="title" id="" cols="118" rows="1"></textarea>
         </Col>
         </FormGroup>
         </Row>
@@ -53,7 +53,7 @@ class Notes extends Component{
         <h4>Notes</h4>
         </Label>
         
-        <textarea className="textNotes" onChange={this._onChange} value={this.state.content} name="content" id="" cols="132" rows="20"></textarea>
+        <textarea className="textNotes" onChange={this._onChange} value={this.state.content} name="content" id="" cols="118" rows="20"></textarea>
         </Col>
         </FormGroup>
         </Row>

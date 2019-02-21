@@ -67,7 +67,7 @@ const medReducers = (state = initState, action) => {
     case FETCH_MEDS_LOADING:
       return{
         ...state,
-        medsLoading: true
+        medsLoading: true,
     }
     case DELETE_MEDS_SUCCESS:
     console.log('here')
