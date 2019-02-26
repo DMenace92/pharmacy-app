@@ -46,42 +46,39 @@ module.exports = {
     },
 
     //find note by id
-    // findOne: (req, res) => {
-    //     const newUse = req.decoded.user._id
-    //     let findById ={
-    //       userId: {
-    //        $eq: newUse
-    //       }
-    //     }
-    //     Note.findById(req.params.noteId)
-    //         .then(note => {
-    //             if (!note) {
-    //                 return res.status(404).send({
-    //                     message: "Note not found with id " + req.params.noteId
-    //                 });
-    //             }
-    //             res.send(note);
-    //         }).catch(err => {
-    //             if (err.kind === 'ObjectId') {
-    //                 return res.status(404).send({
-    //                     message: "Note not found with id " + req.params.noteId
-    //                 });
-    //             }
-    //             return res.status(500).send({
-    //                 message: "Error retrieving note with id " + req.params.noteId
-    //             });
-    //         });
-    // },
+    findOne: (req, res) => {
+        Note.findById(req.params.noteId)
+            .then(note => {
+                console.log("here")
+                if (!note) {
+                    return res.status(404).send({
+                        message: "Note not found with id " + req.params.noteId
+                    });
+                }
+                res.send(note);
+            }).catch(err => {
+                if (err.kind === 'ObjectId') {
+                    return res.status(404).send({
+                        message: "Note not found with id " + req.params.noteId
+                    });
+                }
+                return res.status(500).send({
+                    message: "Error retrieving note with id " + req.params.noteId
+                });
+            });
+    },
 
     //update notes 
     update: (req, res) => {
         // Validate Request
+        // console.log('running update', req.body)
+
         if (!req.body.content) {
             return res.status(400).send({
                 message: "Note content can not be empty"
             });
         }
-
+        console.log('running update', req.body)
         // Find note and update it with the request body
         Note.findByIdAndUpdate(req.params.noteId, {
                 title: req.body.title || "Untitled Note",
@@ -106,15 +103,17 @@ module.exports = {
                     message: "Error updating note with id " + req.params.noteId
                 });
             });
+            
+
     },
 
     //delete notes
 
     deleteOne: (req,res)=>{
         Note.findByIdAndRemove(req.params.id)
-          .then(notes =>{
+        .then(notes =>{
             if(!notes){
-              return res.status(400).send({
+            return res.status(400).send({
                 
                 _id: "notes not found with id " + req.params.id
             });
@@ -123,13 +122,13 @@ module.exports = {
             _id: notes._id
             // , token
         });
-      }
-      }).catch(err => {
+    }
+    }).catch(err => {
         throw new Error(err)
-      });
-      
+    });
+
             }
-      }
+    }
 //     delete: (req, res) => {
 //         Note.findByIdAndRemove(req.params.noteId)
 //             .then(note => {

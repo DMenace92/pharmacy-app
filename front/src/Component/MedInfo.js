@@ -53,9 +53,12 @@ _onChange = ({target}) =>  {
       <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Your med info</ModalHeader>
           <ModalBody>
-          CII medication have a life spand of 90 days from the day it is writen, CIII - CIV 
-          have a life spand of 6 months from the day it is writen, every other medication have 
-          a life spand of 1 year 365 days from the day it is writen.
+            <p>CII - medication have a lifespan of 3 months (90 days) from the day it was written.</p>
+          <br/>
+          <p>CIII - CIV - have a lifespan of 6 months (180 days) from the day it was written.</p>
+          <br/>
+
+          <p>Every other medication - have a lifespan of 1 year (365 days) from the day it is written.</p>
           </ModalBody>
           <ModalFooter>
             <Button color="danger" onClick={this.toggle}>Close</Button>{' '}

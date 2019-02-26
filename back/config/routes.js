@@ -17,16 +17,16 @@ module.exports = function(app){
 
     //USERS after auth
 
-    //notes CURD________________________________________________
+    //notes CURD_____________ ___________________________________
     // Create a new Note
     app.post('/notes', notes.create);
     // Retrieve all Notes
     app.get('/notes', notes.findAll);
     
     // Retrieve a single Note with noteId
-    // app.get('/notes/:noteId', notes.findOne);
+    app.get('/notes/:noteId', notes.findOne);
     // Update a Note with noteId
-    app.put('/notes/:noteId', notes.update);
+    app.put('/notes/:noteId', ()=>console.log("HERE"));
     // Delete a Note with noteId
     app.delete('/notes/:id', notes.deleteOne);
 
@@ -49,12 +49,14 @@ const jwtAuth = (req, res, next) => {
     console.log(token);
     if (token) {
       jwt.verify(token, secret, (err, decoded) => {
+        console.log(err, decoded);
         if (err) {
           console.log(err)
           return res.sendStatus(401)
         } else {
           delete decoded.password;
           req.decoded = decoded;
+          console.log('GOING NEXT', req.url, req.method);
           next();
         }
       })

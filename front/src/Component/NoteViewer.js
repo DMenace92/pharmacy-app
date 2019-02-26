@@ -11,7 +11,10 @@ class NoteViewer extends Component{
   deleteNotes(_id){
     this.props.deleteNotes(_id)
   }
+ 
+
   render(){
+    console.log(this.props)
     return(
       <div>
       <Navbar className="nav" color="dark" light>
@@ -26,7 +29,6 @@ class NoteViewer extends Component{
           <Button color="primary" tag={Link} to="/main">Back</Button>
           </Col>
           </Row>
-         
       </Navbar>
 
         <Container className="theOtherContainer">>
@@ -40,6 +42,9 @@ class NoteViewer extends Component{
             Notes: {note.content}
             </h6>
           <Button onClick={() => this.props.deleteNotes(note._id)} color="danger">Delete</Button>
+
+
+          <Button onClick={()=> this.props.history.push(`/editform/${note._id}`)}  color="primary">Edit</Button>
           {/* <Button>Edit</Button> */}
           </Card>
           )}

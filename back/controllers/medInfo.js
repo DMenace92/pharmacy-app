@@ -1,6 +1,8 @@
 const MedInfo = require('../models/medInfo');
 module.exports = {
 
+
+//CREATE
   create: (req, res,next) => {
 console.log(req.decoded)
   
@@ -23,6 +25,8 @@ MedInfo.create(infoData, function(err,medInfo){
   }
 })
 },
+
+//FETCH
 findAll: (req, res, next) => {
   const autUse = req.decoded.user._id
   let find ={
@@ -38,6 +42,13 @@ findAll: (req, res, next) => {
     }
   })
 },
+
+//UPDATE
+
+// update:(req,res,next) =>{
+//   const 
+// }
+
 //delete
 
 deleteOne: (req,res)=>{

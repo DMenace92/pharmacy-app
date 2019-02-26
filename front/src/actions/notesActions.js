@@ -7,6 +7,15 @@ const createNotesError = () => ({ type: CREATE_NOTES_ERROR })
 
 export const CREATE_NOTES_LOADING = "CREATE_NOTES_LOADING"
 const createNotesLoading = () => ({ type: CREATE_NOTES_LOADING })
+//fetch one
+export const FETCH_ONE_NOTE_SUCCESS = "FETCH_ONE_NOTE_SUCCESS"
+const fetchOneNoteSuccess = (id) => ({type: FETCH_ONE_NOTE_SUCCESS,payload: id})
+
+export const FETCH_ONE_NOTE_LOADING = "FETCH_ONE_NOTE_LOADING"
+const fetchOneNoteLoading = () => ({type: FETCH_ONE_NOTE_LOADING})
+
+export const FETCH_ONE_NOTE_ERROR = "FETCH_ONE_NOTE_ERROR"
+const fetchOneNoteError = () => ({ type: FETCH_ONE_NOTE_ERROR })
 //fetch
 export const FETCH_NOTES_SUCCESS = "FETCH_NOTES_SUCCESS"
 const fetchNotesSuccess = (note) => ({type: FETCH_NOTES_SUCCESS,payload: note})
@@ -20,8 +29,8 @@ const fetchNotesError = () => ({ type: FETCH_NOTES_ERROR })
 //UPDATE
 export const UPDATE_NOTES_SUCCESS =
 "UPDATE_NOTES_SUCCESS"
-const updateNotesSuccess = () => ({ type:
-UPDATE_NOTES_SUCCESS})
+const updateNotesSuccess = (id) => ({ type:
+UPDATE_NOTES_SUCCESS, payload:id})
 
 export const UPDATE_NOTES_LOADING =
 "UPDATE_NOTES_LOADING"
@@ -89,36 +98,68 @@ export const fetchNotes = (token) => dispatch => {
   })
 
   .catch(err => {
-    console.log(err)
+    
     dispatch(
       fetchNotesError()
     )
   })
   
 }
+//FETCH ONE
+
+export const fetchOneNote = (token, _id) => dispatch => {
+  dispatch(
+    fetchOneNoteLoading()
+  )
+  fetch('http://localhost:8000/notes' + _id, {
+    headers: {
+      'Content-Type': 'application/json',
+      'token' : localStorage.getItem('token')
+    }
+  })
+  .then(res => res.json())
+  .then(_id => {
+    
+    dispatch(
+      fetchOneNoteSuccess(_id)
+    )
+  })
+
+  .catch(err => {
+    console.log(err)
+    dispatch(
+      fetchOneNoteError()
+    )
+  })
+  
+}
   //UPDATE
+  
   export const updateNotes = (_id, token) =>
   dispatch => {
     dispatch(
-      updateNotesLoading()
+      updateNotesLoading(_id)
     )
-    fetch('http://localhost:8000/notes/:id',{
+    fetch('http://localhost:8000/notes/' +_id,{
       method: "PUT",
-      body: JSON.stringify(_id),
+      // body: JSON.stringify(id),
       header: {
         'Content-Type': 'application/json',
-        'token' : token
+        'token' : localStorage.getItem('token'),   
       }
     })
+    
     .then(res => res.json())
     .then(_id => {
+     
       dispatch(
         updateNotesSuccess(_id)
       )
     })
     .catch(err => {
+      console.log(err);
       dispatch(
-        updateNotesError()
+        updateNotesError(err)
       )
     })
   }
@@ -142,6 +183,7 @@ export const fetchNotes = (token) => dispatch => {
     })
     .then(res => res.json())
     .then(id => {
+      
       dispatch(
         deleteNotesSuccess(id)
       )

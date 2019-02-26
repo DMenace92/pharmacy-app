@@ -70,15 +70,17 @@ componentDidMount(){
           
           </Row>
           <Row lg={12}>
-          {/* <Col md={6}>
-          <Button color="primary" tag={Link} to="/NoteViewer">View Notes</Button>
-          </Col> */}
+         
           <Col md={0}>
-          {/* <Button onClick={() => this.props.deleteMeds(med.id)} color="danger">Delete</Button> */}
+        
 
           <Button onClick={() => this.props.deleteMeds(med._id)} color="danger">Delete</Button>
-
           </Col>
+          <Col md={2}>
+          <Button  className="editMainButton"onClick={() => this.props.deleteMeds(med._id)} color="primary">Edit</Button>
+          
+          </Col>
+          
           </Row>
         </Card>)}
        
