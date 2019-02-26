@@ -78,7 +78,7 @@ module.exports = {
                 message: "Note content can not be empty"
             });
         }
-        console.log('running update', req.body)
+        // console.log('running update', req.body)
         // Find note and update it with the request body
         Note.findByIdAndUpdate(req.params.noteId, {
                 title: req.body.title || "Untitled Note",
