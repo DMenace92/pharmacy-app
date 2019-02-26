@@ -26,7 +26,7 @@ module.exports = function(app){
     // Retrieve a single Note with noteId
     app.get('/notes/:noteId', notes.findOne);
     // Update a Note with noteId
-    app.put('/notes/:noteId', ()=>console.log("HERE"));
+    app.put('/notes/:noteId',notes.update);
     // Delete a Note with noteId
     app.delete('/notes/:id', notes.deleteOne);
 
@@ -45,11 +45,12 @@ module.exports = function(app){
 }
 
 const jwtAuth = (req, res, next) => {
+  console.log("body token", req.body)
+  console.log("headers token" ,req.headers.token)
     const token = req.body.token || req.headers.token || req.query.token;
-    console.log(token);
     if (token) {
       jwt.verify(token, secret, (err, decoded) => {
-        console.log(err, decoded);
+        console.log(err);
         if (err) {
           console.log(err)
           return res.sendStatus(401)

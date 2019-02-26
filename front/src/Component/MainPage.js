@@ -76,10 +76,9 @@ componentDidMount(){
 
           <Button onClick={() => this.props.deleteMeds(med._id)} color="danger">Delete</Button>
           </Col>
-          <Col md={2}>
-          <Button  className="editMainButton"onClick={() => this.props.deleteMeds(med._id)} color="primary">Edit</Button>
+        
           
-          </Col>
+          
           
           </Row>
         </Card>)}

@@ -1,3 +1,4 @@
+import axios from "axios"
 //CREATE
 export const CREATE_NOTES_SUCCESS = "CREATE_NOTES_SUCCESS"
 const createNotesSuccess = (input) => ({ type: CREATE_NOTES_SUCCESS, payload: input })
@@ -135,26 +136,33 @@ export const fetchOneNote = (token, _id) => dispatch => {
 }
   //UPDATE
   
-  export const updateNotes = (_id, token) =>
+  export const updateNotes = (_id,note) =>
   dispatch => {
     dispatch(
       updateNotesLoading(_id)
     )
-    fetch('http://localhost:8000/notes/' +_id,{
-      method: "PUT",
-      // body: JSON.stringify(id),
-      header: {
-        'Content-Type': 'application/json',
-        'token' : localStorage.getItem('token'),   
-      }
+    console.log("note label",note)
+    axios.put('http://localhost:8000/notes/' +_id,note, {
+      headers: {
+          'token' : localStorage.getItem('token')
+          },
     })
+
+    // fetch('http://localhost:8000/notes/' +_id,{
+    //   method: "PUT",
+    // body: JSON.stringify({...note}),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'token' : localStorage.getItem('token')
+    //   },
+    // })
     
-    .then(res => res.json())
-    .then(_id => {
-     
-      dispatch(
-        updateNotesSuccess(_id)
-      )
+    // .then(res => res.json())
+    .then(res  => {
+     console.log("res label",res)
+      // dispatch(
+      //   updateNotesSuccess(_id)
+      // )
     })
     .catch(err => {
       console.log(err);

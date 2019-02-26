@@ -71,7 +71,7 @@ module.exports = {
     //update notes 
     update: (req, res) => {
         // Validate Request
-        // console.log('running update', req.body)
+        console.log('running update', req.body)
 
         if (!req.body.content) {
             return res.status(400).send({
