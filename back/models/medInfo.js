@@ -15,6 +15,8 @@ const medInfoSchema = mongoose.Schema({
     daySupply: String,
     refills: String,
     directions: String,
+    img: String,
+    
 
 
 

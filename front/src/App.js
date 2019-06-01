@@ -8,7 +8,9 @@ import MedInfoContainer from "./containers/MedInfoContainer";
 import NoteViewerContainer from "./containers/NoteViewerContainer"
 import NavBar from "./Component/NavBar"
 import EditFormContainer from './containers/EditFormContainer'
+import DropDownbutton from './Component/Buttons/DropDownButton'
 import './App.css';
+
 
 class App extends Component {
 
@@ -18,7 +20,7 @@ class App extends Component {
       <div className="App">
         
       <NavBar />
-      
+     
         
         <Switch>
         <Route path="//" component={LoginContainer} />
@@ -32,6 +34,7 @@ class App extends Component {
         <Route path = "/noteViewer" component= {NoteViewerContainer} />
         <Route exact path= "/editform/:id"  component = {EditFormContainer}/>
         </Switch>
+        <DropDownbutton />
       </div>
     );
   }

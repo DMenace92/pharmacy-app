@@ -16,6 +16,7 @@ let infoData = {
     daySupply: req.body.daySupply,
     refills: req.body.refills,
     directions: req.body.directions,
+    
 }
 MedInfo.create(infoData, function(err,medInfo){
   if(err){
