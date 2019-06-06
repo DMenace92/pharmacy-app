@@ -9,6 +9,8 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem } from 'reactstrap';
+  import '../../App.css';
+
 export default class DropDownButton extends React.Component{
   constructor(props){
     super(props);
@@ -23,10 +25,11 @@ export default class DropDownButton extends React.Component{
       });
     }
     
+    
   render(){
     return(
       <div>
-      <NavbarToggler onClick={this.toggle} />
+      <NavbarToggler className="burgerButton" onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
